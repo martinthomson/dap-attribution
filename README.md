@@ -1,23 +1,22 @@
 <!-- regenerate: on (set to off if you edit this file) -->
 
-# Distributed Aggregation Protocol (DAP) Report Binding Extensions
+# Distributed Aggregation Protocol (DAP) Extensions for the Attribution API
 
-This is the working area for the individual Internet-Draft, "Distributed Aggregation Protocol (DAP) Report Binding Extensions".
+This is the working area for the individual Internet-Draft, "Distributed Aggregation Protocol (DAP) Extensions for the Attribution API".
 
-* [Editor's Copy](https://martinthomson.github.io/dap-dp-ext/#go.draft-thomson-ppm-dap-dp-ext.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-thomson-ppm-dap-dp-ext)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-thomson-ppm-dap-dp-ext)
-* [Compare Editor's Copy to Individual Draft](https://martinthomson.github.io/dap-dp-ext/#go.draft-thomson-ppm-dap-dp-ext.diff)
+* [Editor's Copy](https://martinthomson.github.io/dap-attribution/#go.draft-thomson-ppm-dap-attribution.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-thomson-ppm-dap-attribution)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-thomson-ppm-dap-attribution)
+* [Compare Editor's Copy to Individual Draft](https://martinthomson.github.io/dap-attribution/#go.draft-thomson-ppm-dap-attribution.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/martinthomson/dap-dp-ext/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/martinthomson/dap-attribution/blob/main/CONTRIBUTING.md).
 
-Contributions can be made by creating pull requests.
-The GitHub interface supports creating pull requests using the Edit (✏) button.
-
+The contributing file also has tips on how to make contributions, if you
+don't already know how to do that.
 
 ## Command Line Usage
 
