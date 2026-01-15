@@ -18,6 +18,7 @@
 /versioned/
 Gemfile.lock
 archive.json
+draft-thomson-ppm-dap-attribution.xml
 draft-thomson-ppm-dap-dp-ext.xml
 package-lock.json
 report.xml
