@@ -4,8 +4,8 @@
 
 Privacy Preserving Measurement                                M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Standards Track                         15 January 2026
-Expires: 19 July 2026
+Intended status: Standards Track                         5 February 2026
+Expires: 9 August 2026
 
 
  Distributed Aggregation Protocol (DAP) Extensions for the Attribution
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 July 2026.
+   This Internet-Draft will expire on 9 August 2026.
 
 Copyright Notice
 
@@ -84,11 +84,12 @@ Table of Contents
    5.  Minimum Privacy Budget Collection Job Extension
    6.  Collector Identity Task Extension
      6.1.  Collector Identity and HPKE Configuration
-   7.  Security Considerations
-   8.  IANA Considerations
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   7.  Budget Source Task Extension
+   8.  Security Considerations
+   9.  IANA Considerations
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
    Acknowledgments
    Author's Address
 
@@ -219,7 +220,7 @@ Table of Contents
 
 1.3.  Other Extensions
 
-   Two other extensions are defined in this document.
+   Three other extensions are defined in this document.
 
    The minimum privacy budget collection job extension (Section 5) added
    to collection job initialization places guardrails around what
@@ -238,11 +239,24 @@ Table of Contents
    of the Collector to tasks.  This extension fixes the entity can
    request collection of reports.
 
-   For the Attribution API, each Collector receives their own source of
-   privacy budget.  Binding tasks to a single Collector ensures that the
-   privacy guarantees that the per-Collector privacy budget provide
-   cannot be circumvented by Collectors pooling reports into a single
-   aggregate.
+   In the Attribution API, the Collector is either a "conversion site",
+   or an "internediary site"; see [ATTR].  The conversion site is the
+   top-level site where reports are generated.  An intermediary site is
+   any entity that operates independently from the top-level site, and
+   it includes the providers of resources (such as images or other
+   content) and framed content (that is, HTML iframes).
+
+   The budget source task extension (Section 7) binds the identity of
+   the context that provides privacy budget to tasks.  This extension
+   ensures that reports that draw from different privacy budgets cannot
+   be aggregated together.
+
+   For the Attribution API, each "conversion site" receives their own
+   source of privacy budget.  Binding tasks to their identity ensures
+   that the privacy guarantees associated with that privacy budget hold
+   when Aggregators are responsible for adding noise.  That is, reports
+   that draw from different budgets cannot be aggregated together with a
+   single quantity of noise.
 
 2.  Conventions and Definitions
 
@@ -453,6 +467,8 @@ Table of Contents
 
 6.  Collector Identity Task Extension
 
+   TODO: Update this to refer to DAP proper.
+
    The collector identity task extension [TASKPROV] (codepoint 0xTBD)
    binds the task -- and all reports submitted to that task -- to a
    single Collector.
@@ -463,7 +479,9 @@ Table of Contents
 
    The Attribution API has its own understanding of how to encode the
    identity of the Collector.  The value is a UTF-8-encoded string of
-   the registrable domain from the conversion site tuple.
+   the registrable domain from the intermediary site tuple (if there is
+   an intermediary site) or the conversion site tuple (where there is no
+   intermediary site).
 
 6.1.  Collector Identity and HPKE Configuration
 
@@ -479,16 +497,32 @@ Table of Contents
    identified entity.
 
    One option for Collector identification is to use a URL, following
-   the pattern used for the Leader and Helper ([TASKPROV].  If the URL
-   uses an authenticated protocol, such as HTTP with the "https" scheme
-   [RFC9110], retrieving an HPKE configuration from that URL (or
+   the pattern used for the Leader and Helper (TODO: DAP citation).  If
+   the URL uses an authenticated protocol, such as HTTP with the "https"
+   scheme [RFC9110], retrieving an HPKE configuration from that URL (or
    similarly authenticated resources that are referenced from the
    response) provides the necessary authorization for the included key.
 
    The Attribution API does not define a process for authorizing a
    Collector HPKE configuration based on the encoded Collector identity.
 
-7.  Security Considerations
+7.  Budget Source Task Extension
+
+   TODO: Update this to refer to DAP proper.
+
+   The budget source task extension [TASKPROV] (codepoint 0xTBD) binds
+   the task -- and all reports submitted to that task -- to a single
+   source of privacy budget.
+
+   This extension does not specify how to encode the identity of this
+   entity.  Different uses of DAP can choose an encoding that best suits
+   the needs of the differentially private usage.
+
+   The Attribution API has its own understanding of how to encode the
+   identity of the budget source.  The value is a UTF-8-encoded string
+   of the registrable domain from the conversion site tuple.
+
+8.  Security Considerations
 
    Security factors specific to each extension are covered in the
    respective sections.
@@ -497,7 +531,7 @@ Table of Contents
    (Section 8 of [DAP]) and the VDAF that is in use (Section 9 of
    [VDAF].
 
-8.  IANA Considerations
+9.  IANA Considerations
 
    TODO - update this for the collection job extension. ...and the
    change in where task configuration is likely to go.
@@ -539,19 +573,21 @@ Table of Contents
                 +=======+====================+===========+
                 | TBD   | collector_identity | Section 6 |
                 +-------+--------------------+-----------+
+                | TBD   | budget_source      | Section 7 |
+                +-------+--------------------+-----------+
 
                   Table 3: Task Configuration Extensions
 
-9.  References
+10.  References
 
-9.1.  Normative References
+10.1.  Normative References
 
    [DAP]      Geoghegan, T., Patton, C., Pitman, B., Rescorla, E., and
               C. A. Wood, "Distributed Aggregation Protocol for Privacy
               Preserving Measurement", Work in Progress, Internet-Draft,
-              draft-ietf-ppm-dap-16, 2 September 2025,
+              draft-ietf-ppm-dap-17, 30 January 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-
-              16>.
+              17>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -570,11 +606,11 @@ Table of Contents
 
    [VDAF]     Barnes, R., Cook, D., Patton, C., and P. Schoppmann,
               "Verifiable Distributed Aggregation Functions", Work in
-              Progress, Internet-Draft, draft-irtf-cfrg-vdaf-17, 17
-              October 2025, <https://datatracker.ietf.org/doc/html/
-              draft-irtf-cfrg-vdaf-17>.
+              Progress, Internet-Draft, draft-irtf-cfrg-vdaf-18, 30
+              January 2026, <https://datatracker.ietf.org/doc/html/
+              draft-irtf-cfrg-vdaf-18>.
 
-9.2.  Informative References
+10.2.  Informative References
 
    [ATTR]     Paseltiner, A., Leiserson, A., Case, B., Savage, B.,
               Harrison, C., and M. Thomson, "Attribution API", 14
