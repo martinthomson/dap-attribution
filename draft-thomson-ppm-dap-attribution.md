@@ -253,7 +253,7 @@ at the time that each report is uploaded.
 
 ## Other Extensions
 
-Two other extensions are defined in this document.
+Three other extensions are defined in this document.
 
 The minimum privacy budget collection job extension ({{min-dp}})
 added to collection job initialization
@@ -278,13 +278,30 @@ The collector identity task extension ({{collector-id}})
 binds the identity of the Collector to tasks.
 This extension fixes the entity can request collection of reports.
 
+In the Attribution API,
+the Collector is either a "conversion site",
+or an "internediary site"; see {{ATTR}}.
+The conversion site is the top-level site where reports are generated.
+An intermediary site is any entity that operates
+independently from the top-level site,
+and it includes the providers of resources (such as images or other content)
+and framed content (that is, HTML iframes).
+
+The budget source task extension ({{budget-source}})
+binds the identity of the context that provides privacy budget
+to tasks.
+This extension ensures that reports
+that draw from different privacy budgets
+cannot be aggregated together.
+
 For the Attribution API,
-each Collector receives their own source of privacy budget.
-Binding tasks to a single Collector
+each "conversion site" receives their own source of privacy budget.
+Binding tasks to their identity
 ensures that the privacy guarantees
-that the per-Collector privacy budget provide
-cannot be circumvented by Collectors pooling reports
-into a single aggregate.
+associated with that privacy budget hold
+when Aggregators are responsible for adding noise.
+That is, reports that draw from different budgets
+cannot be aggregated together with a single quantity of noise.
 
 
 # Conventions and Definitions
@@ -550,6 +567,8 @@ that less noise was added than they might have planned.
 
 # Collector Identity Task Extension {#collector-id}
 
+TODO: Update this to refer to DAP proper.
+
 The collector identity task extension {{!TASKPROV=I-D.ietf-ppm-dap-taskprov}}
 (codepoint 0xTBD)
 binds the task --
@@ -564,7 +583,8 @@ The Attribution API has its own understanding
 of how to encode the identity of the Collector.
 The value is a UTF-8-encoded string
 of the registrable domain
-from the conversion site tuple.
+from the intermediary site tuple (if there is an intermediary site)
+or the conversion site tuple (where there is no intermediary site).
 
 
 ## Collector Identity and HPKE Configuration
@@ -583,7 +603,7 @@ but rather an affirmation that the public key
 is approved by the identified entity.
 
 One option for Collector identification is to use a URL,
-following the pattern used for the Leader and Helper ({{?TASKPROV}}.
+following the pattern used for the Leader and Helper (TODO: DAP citation).
 If the URL uses an authenticated protocol,
 such as HTTP with the "https" scheme {{?RFC9110}},
 retrieving an HPKE configuration from that URL
@@ -594,6 +614,27 @@ provides the necessary authorization for the included key.
 The Attribution API does not define a process
 for authorizing a Collector HPKE configuration
 based on the encoded Collector identity.
+
+
+# Budget Source Task Extension {#budget-source}
+
+TODO: Update this to refer to DAP proper.
+
+The budget source task extension {{!TASKPROV=I-D.ietf-ppm-dap-taskprov}}
+(codepoint 0xTBD)
+binds the task --
+and all reports submitted to that task --
+to a single source of privacy budget.
+
+This extension does not specify how to encode the identity of this entity.
+Different uses of DAP can choose an encoding
+that best suits the needs of the differentially private usage.
+
+The Attribution API has its own understanding
+of how to encode the identity of the budget source.
+The value is a UTF-8-encoded string
+of the registrable domain
+from the conversion site tuple.
 
 
 # Security Considerations
@@ -645,6 +686,7 @@ in {{t-dap-taskprov-ext}}.
 | Value  | Name               | Reference          |
 |:-------|:-------------------|:-------------------|
 | TBD    | collector_identity | {{collector-id}}   |
+| TBD    | budget_source      | {{budget-source}}  |
 {: #t-dap-taskprov-ext title="Task Configuration Extensions"}
 
 
