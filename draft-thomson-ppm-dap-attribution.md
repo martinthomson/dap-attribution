@@ -404,7 +404,7 @@ on a per-report basis.
 By binding the amount of budget spent to each report,
 the Client can transfer responsibility
 for applying noise to Aggregators.
-The addition of noise in the one place,
+The addition of noise in the one place
 can ensure a better trade-off between
 the amount of added noise
 and privacy parameters.
