@@ -169,7 +169,7 @@ and the operating modes that the Attribution API depends on.
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -177,7 +177,8 @@ and the operating modes that the Attribution API depends on.
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 }
 
 @font-face {
@@ -1052,7 +1053,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thomson</td>
-<td class="center">Expires 9 August 2026</td>
+<td class="center">Expires 22 August 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1066,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-thomson-ppm-dap-attribution-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-02-05" class="published">5 February 2026</time>
+<time datetime="2026-02-18" class="published">18 February 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-08-09">9 August 2026</time></dd>
+<dd class="expires"><time datetime="2026-08-22">22 August 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1094,7 +1095,7 @@ and the operating modes that the Attribution API depends on.<a href="#section-ab
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://martinthomson.github.io/dap-dp-ext/draft-thomson-ppm-dap-attribution.html">https://martinthomson.github.io/dap-dp-ext/draft-thomson-ppm-dap-attribution.html</a></span>.
+        The latest revision of this draft can be found at <span><a href="https://martinthomson.github.io/dap-attribution/draft-thomson-ppm-dap-attribution.html">https://martinthomson.github.io/dap-attribution/draft-thomson-ppm-dap-attribution.html</a></span>.
         Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-thomson-ppm-dap-attribution/">https://datatracker.ietf.org/doc/draft-thomson-ppm-dap-attribution/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
@@ -1102,7 +1103,7 @@ and the operating modes that the Attribution API depends on.<a href="#section-ab
         which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/ppm/">https://mailarchive.ietf.org/arch/browse/ppm/</a></span>.
         Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/ppm/">https://www.ietf.org/mailman/listinfo/ppm/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/martinthomson/dap-dp-ext">https://github.com/martinthomson/dap-dp-ext</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/martinthomson/dap-attribution">https://github.com/martinthomson/dap-attribution</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1123,7 +1124,7 @@ and the operating modes that the Attribution API depends on.<a href="#section-ab
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1177,6 +1178,9 @@ and the operating modes that the Attribution API depends on.<a href="#section-ab
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-applicability-to-differenti" class="internal xref">Applicability to Differential Privacy Models</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-use-in-the-attribution-api" class="internal xref">Use in the Attribution API</a></p>
 </li>
             </ul>
 </li>
@@ -1267,12 +1271,6 @@ from (ε, 0)-differential privacy
 or (ε, δ)-differential privacy with a fixed δ value.
 This is simpler than a design
 that might allow for multiple budget metrics.<a href="#section-1-5" class="pilcrow">¶</a></p>
-<p id="section-1-6">These extensions all assume the use
-of DAP task provisioning <span>[<a href="#TASKPROV" class="cite xref">TASKPROV</a>]</span>.
-However, only the collector identity extension (<a href="#collector-id" class="auto internal xref">Section 6</a>)
-concretely depends on <span>[<a href="#TASKPROV" class="cite xref">TASKPROV</a>]</span>,
-as it uses the task configuration extensions.
-All other extensions apply to the core DAP protocol <span>[<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-1-6" class="pilcrow">¶</a></p>
 <div id="differential-privacy-in-attribution">
 <section id="section-1.1">
         <h3 id="name-differential-privacy-in-att">
@@ -1552,8 +1550,8 @@ to understand how the extensions interact with DAP.<a href="#section-2-2" class=
       <h2 id="name-differential-privacy-budget">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-differential-privacy-budget" class="section-name selfRef">Differential Privacy Budget Report Extension</a>
       </h2>
-<p id="section-3-1">The privacy budget report extension
-(codepoint 0xTBD)
+<p id="section-3-1">The privacy budget report extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-4.4.3" class="relref">Section 4.4.3</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
+codepoint 0xTBD,
 encodes the amount of privacy budget
 that might have been expended by a Client
 as a result of producing a report.<a href="#section-3-1" class="pilcrow">¶</a></p>
@@ -1565,21 +1563,6 @@ as used in (ε, δ)-differential privacy.<a href="#section-3-2" class="pilcrow">
 <p id="section-3-3">The micro-epsilon value is encoded as a 32-bit integer
 in network byte order.
 This permits expenditure of up to ε=4294.967295 to be encoded.<a href="#section-3-3" class="pilcrow">¶</a></p>
-<p id="section-3-4">The delta (δ) parameter is not directly bound to reports.
-This parameter is rarely used in privacy budgeting.
-A maximum value for δ might be fixed
-as part of the configuration in a specific deployment.
-Setting a value for δ is necessary
-when selecting a differential privacy mechanism.
-In setting a value for δ,
-a deployment needs to consider the total report volume
-and the total number of tasks that each client might contribute to.<a href="#section-3-4" class="pilcrow">¶</a></p>
-<aside id="section-3-5">
-        <p id="section-3-5.1">Note: Where the delta (δ) value is non-zero,
-and a client might generate many reports,
-clients might also need to limit the number of reports
-to prevent the overall delta value from growing large.<a href="#section-3-5.1" class="pilcrow">¶</a></p>
-</aside>
 <div id="privacy-budgeting">
 <section id="section-3.1">
         <h3 id="name-privacy-budgeting">
@@ -1616,29 +1599,57 @@ that is, a distribution with a standard deviation proportional to
         <h3 id="name-applicability-to-differenti">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-applicability-to-differenti" class="section-name selfRef">Applicability to Differential Privacy Models</a>
         </h3>
-<p id="section-3.2-1">When used in the Attribution API,
+<p id="section-3.2-1">The extensions in this document (<a href="#dp" class="auto internal xref">Section 3</a> and <a href="#min-dp" class="auto internal xref">Section 5</a>)
+only support ε-differential privacy
+or (ε, δ)-differential privacy with a fixed delta (δ).
+Systems that use other budgeting methods
+require the use of a different extension.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">A delta (δ) parameter is not directly bound to reports.
+This parameter is rarely used in privacy budgeting.
+Instead, a maximum value for δ might be fixed
+as part of the configuration in a specific deployment.
+Setting a value for δ is necessary
+when selecting a differential privacy mechanism.
+In setting a value for δ,
+a deployment needs to consider the total report volume
+and the total number of tasks that each client might contribute to.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<aside id="section-3.2-3">
+          <p id="section-3.2-3.1">Note: Where the delta (δ) value is non-zero,
+and a client might generate many reports,
+clients might also need to limit the number of reports
+to prevent the overall delta value from growing large.<a href="#section-3.2-3.1" class="pilcrow">¶</a></p>
+</aside>
+</section>
+</div>
+<div id="use-in-the-attribution-api">
+<section id="section-3.3">
+        <h3 id="name-use-in-the-attribution-api">
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-use-in-the-attribution-api" class="section-name selfRef">Use in the Attribution API</a>
+        </h3>
+<p id="section-3.3-1">When used in the Attribution API <span>[<a href="#ATTR" class="cite xref">ATTR</a>]</span>,
 the privacy budget report extension does not always encode the exact amount
 of privacy budget that was expended.
 The individual DP model used in Attribution (see <span>[<a href="#ATTR-DP" class="cite xref">ATTR-DP</a>]</span>),
 allows a Client to expend less of its budget than this value
-for several reasons.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-<p id="section-3.2-2">This introduces some complexity,
+for several reasons.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">This introduces some complexity,
 because any reduction in the budget spent
 is based on private information.
-Consequently, any reduced expenditure needs to be kept secret.
+Consequently, any reduction in budget expenditure needs to be kept secret.
 In that setting,
-the extension reports the maximum possible expenditure.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
-<p id="section-3.2-3">This extension gives users of the Attribution API
+the extension reports the requested expenditure,
+which is the maximum value that might have been spent.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.3-3">This extension gives users of the Attribution API
 the ability to manage privacy budget expenditure
-on a per-report basis.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.2-4">By binding the amount of budget spent to each report,
+on a per-report basis.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+<p id="section-3.3-4">By binding the amount of budget spent to each report,
 the Client can transfer responsibility
 for applying noise to Aggregators.
-The addition of noise in the one place
+The addition of noise in a single place
 can ensure a better trade-off between
 the amount of added noise
-and privacy parameters.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
-<p id="section-3.2-5">The Attribution API differs from some other uses of DAP.
+and privacy parameters.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
+<p id="section-3.3-5">The Attribution API differs from some other uses of DAP.
 which instead involve Clients adding noise to reports
 at the time they are generated.
 To maintain the usefulness of aggregates,
@@ -1648,17 +1659,17 @@ Clients partly rely on DAP mixing their contributions
 with the contributions of other Clients,
 following the shuffle DP approach <span>[<a href="#SHUFFLE" class="cite xref">SHUFFLE</a>]</span>.
 Such uses depend on attaining a certain minimum batch size
-in order to meet their differential privacy targets.<a href="#section-3.2-5" class="pilcrow">¶</a></p>
-<p id="section-3.2-6">Applying noise during aggregation
+in order to meet their differential privacy targets.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
+<p id="section-3.3-6">Applying noise during aggregation
 reduces the importance of the minimum batch size
 parameter in task configuration.
 However, it adds to the work
-that Clients need to trust Aggregators to perform.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
-<p id="section-3.2-7">To maintain consistency with the DAP threat model for privacy
+that Clients need to trust Aggregators to perform.<a href="#section-3.3-6" class="pilcrow">¶</a></p>
+<p id="section-3.3-7">To maintain consistency with the DAP threat model for privacy
 (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-8" class="relref">Section 8</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
 this can mean either performing noise addition in an MPC protocol
-or having Aggregators each independently apply the requisite amount of noise.<a href="#section-3.2-7" class="pilcrow">¶</a></p>
-<p id="section-3.2-8">A number of MPC protocols for adding noise exist,
+or having Aggregators each independently apply the requisite amount of noise.<a href="#section-3.3-7" class="pilcrow">¶</a></p>
+<p id="section-3.3-8">A number of MPC protocols for adding noise exist,
 but these are often not efficient in the two-party setting
 relative to the VDAF protocols typically used.
 On the other hand,
@@ -1667,7 +1678,7 @@ results in more noise when both Aggregators are honest.
 Even so,
 adding two amounts of noise
 often results in less overall noise
-than other approaches.<a href="#section-3.2-8" class="pilcrow">¶</a></p>
+than other approaches.<a href="#section-3.3-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1758,8 +1769,8 @@ that is assigned by the Leader.<a href="#section-4.2-1" class="pilcrow">¶</a></
       <h2 id="name-minimum-privacy-budget-coll">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-minimum-privacy-budget-coll" class="section-name selfRef">Minimum Privacy Budget Collection Job Extension</a>
       </h2>
-<p id="section-5-1">The minimum privacy budget collection job extension
-(codepoint 0xTBD)
+<p id="section-5-1">The minimum privacy budget collection job extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-4.6.2" class="relref">Section 4.6.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
+codepoint 0xTBD,
 allows a Collector to inform Aggregators
 of a minimum value for the privacy budget report extension
 (see <a href="#dp" class="auto internal xref">Section 3</a>)
@@ -1792,7 +1803,8 @@ and the minimum value of the privacy budget report extension
 across all accepted reports determines the magnitude of added noise.<a href="#section-5-6.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-5-7">The latter provides for lower noise
+<p id="section-5-7">Either approach maintains differential privacy guarantees.
+The latter can result in adding less noise
 in the case that the Collector provides a low value,
 but is more complex to implement.
 There is also no way provided to indicate to the Collector
@@ -1804,21 +1816,20 @@ that less noise was added than they might have planned.<a href="#section-5-7" cl
       <h2 id="name-collector-identity-task-ext">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-collector-identity-task-ext" class="section-name selfRef">Collector Identity Task Extension</a>
       </h2>
-<p id="section-6-1">TODO: Update this to refer to DAP proper.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">The collector identity task extension <span>[<a href="#TASKPROV" class="cite xref">TASKPROV</a>]</span>
-(codepoint 0xTBD)
+<p id="section-6-1">The collector identity task extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-4.2.2" class="relref">Section 4.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
+codepoint 0xTBD,
 binds the task --
 and all reports submitted to that task --
-to a single Collector.<a href="#section-6-2" class="pilcrow">¶</a></p>
-<p id="section-6-3">This extension does not specify how to encode the identity of the Collector.
+to a single Collector.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2">This extension does not specify how to encode the identity of the Collector.
 Different uses of DAP can choose an encoding
-that best suits the situation.<a href="#section-6-3" class="pilcrow">¶</a></p>
-<p id="section-6-4">The Attribution API has its own understanding
+that best suits the situation.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">The Attribution API has its own understanding
 of how to encode the identity of the Collector.
 The value is a UTF-8-encoded string
 of the registrable domain
 from the intermediary site tuple (if there is an intermediary site)
-or the conversion site tuple (where there is no intermediary site).<a href="#section-6-4" class="pilcrow">¶</a></p>
+or the conversion site tuple (where there is no intermediary site).<a href="#section-6-3" class="pilcrow">¶</a></p>
 <div id="collector-identity-and-hpke-configuration">
 <section id="section-6.1">
         <h3 id="name-collector-identity-and-hpke">
@@ -1836,7 +1847,8 @@ for the corresponding private key <span>[<a href="#SIGMA" class="cite xref">SIGM
 but rather an affirmation that the public key
 is approved by the identified entity.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <p id="section-6.1-3">One option for Collector identification is to use a URL,
-following the pattern used for the Leader and Helper (TODO: DAP citation).
+following the pattern used for the Leader and Helper;
+see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-4.2" class="relref">Section 4.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.
 If the URL uses an authenticated protocol,
 such as HTTP with the "https" scheme <span>[<a href="#RFC9110" class="cite xref">RFC9110</a>]</span>,
 retrieving an HPKE configuration from that URL
@@ -1855,20 +1867,19 @@ based on the encoded Collector identity.<a href="#section-6.1-4" class="pilcrow"
       <h2 id="name-budget-source-task-extensio">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-budget-source-task-extensio" class="section-name selfRef">Budget Source Task Extension</a>
       </h2>
-<p id="section-7-1">TODO: Update this to refer to DAP proper.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">The budget source task extension <span>[<a href="#TASKPROV" class="cite xref">TASKPROV</a>]</span>
-(codepoint 0xTBD)
-binds the task --
+<p id="section-7-1">The budget source task extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-4.2.2" class="relref">Section 4.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
+codepoint 0xTBD,
+binds a task --
 and all reports submitted to that task --
-to a single source of privacy budget.<a href="#section-7-2" class="pilcrow">¶</a></p>
-<p id="section-7-3">This extension does not specify how to encode the identity of this entity.
+to a single source of privacy budget.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-2">This extension does not specify how to encode the identity of this entity.
 Different uses of DAP can choose an encoding
-that best suits the needs of the differentially private usage.<a href="#section-7-3" class="pilcrow">¶</a></p>
-<p id="section-7-4">The Attribution API has its own understanding
+that best suits the needs of the differentially private usage.<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-7-3">The Attribution API has its own understanding
 of how to encode the identity of the budget source.
 The value is a UTF-8-encoded string
 of the registrable domain
-from the conversion site tuple.<a href="#section-7-4" class="pilcrow">¶</a></p>
+from the conversion site tuple.<a href="#section-7-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -1888,46 +1899,13 @@ and the VDAF that is in use (<span><a href="https://datatracker.ietf.org/doc/htm
       <h2 id="name-iana-considerations">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-9-1">TODO - update this for the collection job extension.
-...and the change in where task configuration is likely to go.<a href="#section-9-1" class="pilcrow">¶</a></p>
-<p id="section-9-2">This document registers report extensions
-in the "Report Extension Identifiers" registry
-established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-9.2.2" class="relref">Section 9.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-2" class="pilcrow">¶</a></p>
-<p id="section-9-3">New report extension registrations are tabulated
-in <a href="#t-dap-ext" class="auto internal xref">Table 1</a>.<a href="#section-9-3" class="pilcrow">¶</a></p>
-<span id="name-dap-extensions"></span><div id="t-dap-ext">
+<p id="section-9-1">This document registers a new batch mode
+in the "DAP Batch Mode Identifiers" registry
+established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-9.2.1" class="relref">Section 9.2.1</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-1" class="pilcrow">¶</a></p>
+<span id="name-dap-match-mode"></span><div id="t-dap-bm">
 <table class="center" id="table-1">
         <caption>
 <a href="#table-1" class="selfRef">Table 1</a>:
-<a href="#name-dap-extensions" class="selfRef">DAP Extensions</a>
-        </caption>
-<thead>
-          <tr>
-            <th class="text-left" rowspan="1" colspan="1">Value</th>
-            <th class="text-left" rowspan="1" colspan="1">Name</th>
-            <th class="text-left" rowspan="1" colspan="1">Reference</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="text-left" rowspan="1" colspan="1">TBD</td>
-            <td class="text-left" rowspan="1" colspan="1">privacy_budget</td>
-            <td class="text-left" rowspan="1" colspan="1">
-              <a href="#dp" class="auto internal xref">Section 3</a>
-</td>
-          </tr>
-        </tbody>
-      </table>
-</div>
-<p id="section-9-5">This document registers a new batch mode
-in the "Batch Modes Identifiers" registry
-established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-9.2.1" class="relref">Section 9.2.1</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-5" class="pilcrow">¶</a></p>
-<p id="section-9-6">New report extension registrations are tabulated
-in <a href="#t-dap-ext" class="auto internal xref">Table 1</a>.<a href="#section-9-6" class="pilcrow">¶</a></p>
-<span id="name-dap-match-mode"></span><div id="t-dap-bm">
-<table class="center" id="table-2">
-        <caption>
-<a href="#table-2" class="selfRef">Table 2</a>:
 <a href="#name-dap-match-mode" class="selfRef">DAP Match Mode</a>
         </caption>
 <thead>
@@ -1948,15 +1926,15 @@ in <a href="#t-dap-ext" class="auto internal xref">Table 1</a>.<a href="#section
         </tbody>
       </table>
 </div>
-<p id="section-9-8">This document registers task configuration extensions
-in the "Taskbind Extensions" registry
-established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-taskprov-03#section-7.2" class="relref">Section 7.2</a> of [<a href="#TASKPROV" class="cite xref">TASKPROV</a>]</span>.<a href="#section-9-8" class="pilcrow">¶</a></p>
-<p id="section-9-9">New task provisioning extensions are tabulated
-in <a href="#t-dap-taskprov-ext" class="auto internal xref">Table 3</a>.<a href="#section-9-9" class="pilcrow">¶</a></p>
-<span id="name-task-configuration-extensio"></span><div id="t-dap-taskprov-ext">
-<table class="center" id="table-3">
+<p id="section-9-3">This document registers task extensions
+in the "DAP Task Extension Identifiers" registry
+established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-9.2.2" class="relref">Section 9.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-3" class="pilcrow">¶</a></p>
+<p id="section-9-4">New task extensions are tabulated
+in <a href="#t-dap-task-ext" class="auto internal xref">Table 2</a>.<a href="#section-9-4" class="pilcrow">¶</a></p>
+<span id="name-task-configuration-extensio"></span><div id="t-dap-task-ext">
+<table class="center" id="table-2">
         <caption>
-<a href="#table-3" class="selfRef">Table 3</a>:
+<a href="#table-2" class="selfRef">Table 2</a>:
 <a href="#name-task-configuration-extensio" class="selfRef">Task Configuration Extensions</a>
         </caption>
 <thead>
@@ -1979,6 +1957,64 @@ in <a href="#t-dap-taskprov-ext" class="auto internal xref">Table 3</a>.<a href=
             <td class="text-left" rowspan="1" colspan="1">budget_source</td>
             <td class="text-left" rowspan="1" colspan="1">
               <a href="#budget-source" class="auto internal xref">Section 7</a>
+</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<p id="section-9-6">This document registers a DAP report extension
+in the "DAP Report Extension Identifiers" registry
+established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-9.2.3" class="relref">Section 9.2.3</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-6" class="pilcrow">¶</a></p>
+<p id="section-9-7">The new report extension registration is tabulated
+in <a href="#t-dap-report-ext" class="auto internal xref">Table 3</a>.<a href="#section-9-7" class="pilcrow">¶</a></p>
+<span id="name-dap-extensions"></span><div id="t-dap-report-ext">
+<table class="center" id="table-3">
+        <caption>
+<a href="#table-3" class="selfRef">Table 3</a>:
+<a href="#name-dap-extensions" class="selfRef">DAP Extensions</a>
+        </caption>
+<thead>
+          <tr>
+            <th class="text-left" rowspan="1" colspan="1">Value</th>
+            <th class="text-left" rowspan="1" colspan="1">Name</th>
+            <th class="text-left" rowspan="1" colspan="1">Reference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+            <td class="text-left" rowspan="1" colspan="1">privacy_budget</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <a href="#dp" class="auto internal xref">Section 3</a>
+</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<p id="section-9-9">This document registers a collection job extension
+in the "DAP Collection Job Extension Identifiers" registry
+established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-17#section-9.2.4" class="relref">Section 9.2.4</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-9" class="pilcrow">¶</a></p>
+<p id="section-9-10">The new collection job extension is tabulated
+in <a href="#t-dap-collect-ext" class="auto internal xref">Table 4</a>.<a href="#section-9-10" class="pilcrow">¶</a></p>
+<span id="name-collection-job-extensions"></span><div id="t-dap-collect-ext">
+<table class="center" id="table-4">
+        <caption>
+<a href="#table-4" class="selfRef">Table 4</a>:
+<a href="#name-collection-job-extensions" class="selfRef">Collection Job Extensions</a>
+        </caption>
+<thead>
+          <tr>
+            <th class="text-left" rowspan="1" colspan="1">Value</th>
+            <th class="text-left" rowspan="1" colspan="1">Name</th>
+            <th class="text-left" rowspan="1" colspan="1">Reference</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">TBD</td>
+            <td class="text-left" rowspan="1" colspan="1">min_dp_budget</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <a href="#min-dp" class="auto internal xref">Section 5</a>
 </td>
           </tr>
         </tbody>
@@ -2008,10 +2044,6 @@ in <a href="#t-dap-taskprov-ext" class="auto internal xref">Table 3</a>.<a href=
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="TASKPROV">[TASKPROV]</dt>
-        <dd>
-<span class="refAuthor">Wang, S.</span> and <span class="refAuthor">C. Patton</span>, <span class="refTitle">"Task Binding and In-Band Provisioning for DAP"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-ppm-dap-taskprov-03</span>, <time datetime="2025-09-05" class="refDate">5 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-taskprov-03">https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-taskprov-03</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="VDAF">[VDAF]</dt>
       <dd>
