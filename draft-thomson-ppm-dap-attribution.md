@@ -19,8 +19,8 @@ venue:
   type: "Working Group"
   mail: "ppm@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/ppm/"
-  github: "martinthomson/dap-dp-ext"
-  latest: "https://martinthomson.github.io/dap-dp-ext/draft-thomson-ppm-dap-attribution.html"
+  github: "martinthomson/dap-attribution"
+  latest: "https://martinthomson.github.io/dap-attribution/draft-thomson-ppm-dap-attribution.html"
 
 author:
   -
