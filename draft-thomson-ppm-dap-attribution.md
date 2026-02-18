@@ -131,13 +131,6 @@ or (ε, δ)-differential privacy with a fixed δ value.
 This is simpler than a design
 that might allow for multiple budget metrics.
 
-These extensions all assume the use
-of DAP task provisioning {{!TASKPROV=I-D.ietf-ppm-dap-taskprov}}.
-However, only the collector identity extension ({{collector-id}})
-concretely depends on {{!TASKPROV}},
-as it uses the task configuration extensions.
-All other extensions apply to the core DAP protocol {{!DAP}}.
-
 
 ## Differential Privacy in Attribution
 
@@ -317,8 +310,8 @@ to understand how the extensions interact with DAP.
 
 # Differential Privacy Budget Report Extension {#dp}
 
-The privacy budget report extension
-(codepoint 0xTBD)
+The privacy budget report extension (see {{Section 4.4.3 of DAP}})
+codepoint 0xTBD,
 encodes the amount of privacy budget
 that might have been expended by a Client
 as a result of producing a report.
@@ -332,22 +325,6 @@ as used in (ε, δ)-differential privacy.
 The micro-epsilon value is encoded as a 32-bit integer
 in network byte order.
 This permits expenditure of up to ε=4294.967295 to be encoded.
-
-The delta (δ) parameter is not directly bound to reports.
-This parameter is rarely used in privacy budgeting.
-A maximum value for δ might be fixed
-as part of the configuration in a specific deployment.
-Setting a value for δ is necessary
-when selecting a differential privacy mechanism.
-In setting a value for δ,
-a deployment needs to consider the total report volume
-and the total number of tasks that each client might contribute to.
-
-{:aside}
-> Note: Where the delta (δ) value is non-zero,
-> and a client might generate many reports,
-> clients might also need to limit the number of reports
-> to prevent the overall delta value from growing large.
 
 
 ## Privacy Budgeting
@@ -383,7 +360,32 @@ that is, a distribution with a standard deviation proportional to
 
 ## Applicability to Differential Privacy Models
 
-When used in the Attribution API,
+The extensions in this document ({{dp}} and {{min-dp}})
+only support ε-differential privacy
+or (ε, δ)-differential privacy with a fixed delta (δ).
+Systems that use other budgeting methods
+require the use of a different extension.
+
+A delta (δ) parameter is not directly bound to reports.
+This parameter is rarely used in privacy budgeting.
+Instead, a maximum value for δ might be fixed
+as part of the configuration in a specific deployment.
+Setting a value for δ is necessary
+when selecting a differential privacy mechanism.
+In setting a value for δ,
+a deployment needs to consider the total report volume
+and the total number of tasks that each client might contribute to.
+
+{:aside}
+> Note: Where the delta (δ) value is non-zero,
+> and a client might generate many reports,
+> clients might also need to limit the number of reports
+> to prevent the overall delta value from growing large.
+
+
+## Use in the Attribution API
+
+When used in the Attribution API {{ATTR}},
 the privacy budget report extension does not always encode the exact amount
 of privacy budget that was expended.
 The individual DP model used in Attribution (see {{ATTR-DP}}),
@@ -393,9 +395,10 @@ for several reasons.
 This introduces some complexity,
 because any reduction in the budget spent
 is based on private information.
-Consequently, any reduced expenditure needs to be kept secret.
+Consequently, any reduction in budget expenditure needs to be kept secret.
 In that setting,
-the extension reports the maximum possible expenditure.
+the extension reports the requested expenditure,
+which is the maximum value that might have been spent.
 
 This extension gives users of the Attribution API
 the ability to manage privacy budget expenditure
@@ -404,7 +407,7 @@ on a per-report basis.
 By binding the amount of budget spent to each report,
 the Client can transfer responsibility
 for applying noise to Aggregators.
-The addition of noise in the one place
+The addition of noise in a single place
 can ensure a better trade-off between
 the amount of added noise
 and privacy parameters.
@@ -524,8 +527,8 @@ that is assigned by the Leader.
 
 # Minimum Privacy Budget Collection Job Extension {#min-dp}
 
-The minimum privacy budget collection job extension
-(codepoint 0xTBD)
+The minimum privacy budget collection job extension (see {{Section 4.6.2 of DAP}}),
+codepoint 0xTBD,
 allows a Collector to inform Aggregators
 of a minimum value for the privacy budget report extension
 (see {{dp}})
@@ -558,7 +561,8 @@ in one of two ways:
   and the minimum value of the privacy budget report extension
   across all accepted reports determines the magnitude of added noise.
 
-The latter provides for lower noise
+Either approach maintains differential privacy guarantees.
+The latter can result in adding less noise
 in the case that the Collector provides a low value,
 but is more complex to implement.
 There is also no way provided to indicate to the Collector
@@ -567,10 +571,8 @@ that less noise was added than they might have planned.
 
 # Collector Identity Task Extension {#collector-id}
 
-TODO: Update this to refer to DAP proper.
-
-The collector identity task extension {{!TASKPROV=I-D.ietf-ppm-dap-taskprov}}
-(codepoint 0xTBD)
+The collector identity task extension (see {{Section 4.2.2 of DAP}}),
+codepoint 0xTBD,
 binds the task --
 and all reports submitted to that task --
 to a single Collector.
@@ -603,7 +605,8 @@ but rather an affirmation that the public key
 is approved by the identified entity.
 
 One option for Collector identification is to use a URL,
-following the pattern used for the Leader and Helper (TODO: DAP citation).
+following the pattern used for the Leader and Helper;
+see {{Section 4.2 of DAP}}.
 If the URL uses an authenticated protocol,
 such as HTTP with the "https" scheme {{?RFC9110}},
 retrieving an HPKE configuration from that URL
@@ -618,11 +621,9 @@ based on the encoded Collector identity.
 
 # Budget Source Task Extension {#budget-source}
 
-TODO: Update this to refer to DAP proper.
-
-The budget source task extension {{!TASKPROV=I-D.ietf-ppm-dap-taskprov}}
-(codepoint 0xTBD)
-binds the task --
+The budget source task extension (see {{Section 4.2.2 of DAP}}),
+codepoint 0xTBD,
+binds a task --
 and all reports submitted to that task --
 to a single source of privacy budget.
 
@@ -649,45 +650,52 @@ and the VDAF that is in use ({{Section 9 of !VDAF=I-D.irtf-cfrg-vdaf}}.
 
 # IANA Considerations
 
-TODO - update this for the collection job extension.
-...and the change in where task configuration is likely to go.
-
-This document registers report extensions
-in the "Report Extension Identifiers" registry
-established in {{Section 9.2.2 of DAP}}.
-
-New report extension registrations are tabulated
-in {{t-dap-ext}}.
-
-| Value  | Name               | Reference     |
-|:-------|:-------------------|:--------------|
-| TBD    | privacy_budget     | {{dp}}        |
-{: #t-dap-ext title="DAP Extensions"}
 
 This document registers a new batch mode
-in the "Batch Modes Identifiers" registry
+in the "DAP Batch Mode Identifiers" registry
 established in {{Section 9.2.1 of DAP}}.
-
-New report extension registrations are tabulated
-in {{t-dap-ext}}.
 
 | Value  | Name               | Reference      |
 |:-------|:-------------------|:---------------|
 | TBD    | collector_selected | {{batch-mode}} |
 {: #t-dap-bm title="DAP Match Mode"}
 
-This document registers task configuration extensions
-in the "Taskbind Extensions" registry
-established in {{Section 7.2 of !TASKPROV}}.
+This document registers task extensions
+in the "DAP Task Extension Identifiers" registry
+established in {{Section 9.2.2 of DAP}}.
 
-New task provisioning extensions are tabulated
-in {{t-dap-taskprov-ext}}.
+New task extensions are tabulated
+in {{t-dap-task-ext}}.
 
 | Value  | Name               | Reference          |
 |:-------|:-------------------|:-------------------|
 | TBD    | collector_identity | {{collector-id}}   |
 | TBD    | budget_source      | {{budget-source}}  |
-{: #t-dap-taskprov-ext title="Task Configuration Extensions"}
+{: #t-dap-task-ext title="Task Configuration Extensions"}
+
+This document registers a DAP report extension
+in the "DAP Report Extension Identifiers" registry
+established in {{Section 9.2.3 of DAP}}.
+
+The new report extension registration is tabulated
+in {{t-dap-report-ext}}.
+
+| Value  | Name               | Reference     |
+|:-------|:-------------------|:--------------|
+| TBD    | privacy_budget     | {{dp}}        |
+{: #t-dap-report-ext title="DAP Extensions"}
+
+This document registers a collection job extension
+in the "DAP Collection Job Extension Identifiers" registry
+established in {{Section 9.2.4 of DAP}}.
+
+The new collection job extension is tabulated
+in {{t-dap-collect-ext}}.
+
+| Value  | Name               | Reference          |
+|:-------|:-------------------|:-------------------|
+| TBD    | min_dp_budget      | {{min-dp}}         |
+{: #t-dap-collect-ext title="Collection Job Extensions"}
 
 
 --- back
