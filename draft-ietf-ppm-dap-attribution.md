@@ -31,7 +31,7 @@ author:
 normative:
 
 informative:
-  ATTR:
+  API:
     target: https://w3c.github.io/attribution
     title: "Attribution API"
     date: 2025-01-14
@@ -102,7 +102,7 @@ and the operating modes that the Attribution API depends on.
 
 # Introduction
 
-The Attribution API {{ATTR}} is a web platform feature
+The Attribution API {{API}} is a web platform feature
 that provides sites that use advertising
 with tools that measure cross-site interactions with advertising.
 Measurements that the API produce are aggregated
@@ -160,7 +160,7 @@ that was consumed in the generation of a report
 is described in {{dp}}.
 
 
-## Attribution Operating Mode Extensions
+## Attribution Operating Mode Extensions {#mode}
 
 The Attribution API is expected to operate in a mode
 that differs somewhat from the way that DAP is architected.
@@ -220,17 +220,17 @@ A simple representation of the architecture used by the Attribution API
 is illustrated in {{f-arch-attr}}.
 
 ~~~ aasvg
-                                                            +--------+
-                                                            | Helper |
-                                                            +--------+
-                                                                ^
-+------------+                                                  ║ Validate &
-| +----------+-+    Reports                                     ║ Aggregate
-| | +----------+-+ ----------> +-----------+   Batched          v
-+-+ |  Clients   | ----------> | Collector |   Reports      +--------+
-  +-+ (Browsers) | ----------> | (Website) | =============> | Leader |
-    +------------+ ----------> +-----------+ <------------- +--------+
-                                               Result
+                                                     +--------+
+                                                     | Helper |
+                                                     +--------+
+                                                         ^
++------------+                                           ║ Validate &
+| +----------+-+   Reports                               ║ Aggregate
+| | +----------+-+ -------> +-----------+  Batched       v
++-+ |  Clients   | -------> | Collector |  Reports    +--------+
+  +-+ (Browsers) | -------> | (Website) | ==========> | Leader |
+    +------------+ -------> +-----------+ <---------- +--------+
+                                            Result
 ~~~
 {: #f-arch-attr title="Attribution API Architecture" artwork-svg-options="--spaces=2"}
 
@@ -280,7 +280,7 @@ This extension fixes the entity can request collection of reports.
 
 In the Attribution API,
 the Collector is either a "conversion site",
-or an "intermediary site"; see {{ATTR}}.
+or an "intermediary site"; see {{API}}.
 The conversion site is the top-level site where reports are generated.
 An intermediary site is any entity that operates
 independently from the top-level site,
@@ -312,7 +312,7 @@ cannot be aggregated together with a single quantity of noise.
 
 This document relies on the definitions in DAP {{!DAP}}
 for protocol roles and functions.
-Some reference is made to the terms and concepts in the Attribution API {{ATTR}},
+Some reference is made to the terms and concepts in the Attribution API {{API}},
 though familiarity with these should not be necessary
 to understand how the extensions interact with DAP.
 
@@ -392,11 +392,11 @@ and the total number of tasks that each client might contribute to.
 > to prevent the overall delta value from growing large.
 
 
-## Use in the Attribution API
+## Use in the Attribution API {#api-usage}
 
-When used in the Attribution API {{ATTR}},
-the privacy budget report extension does not always encode the exact amount
-of privacy budget that was expended.
+When used in the Attribution API {{API}},
+the epsilon privacy budget report extension does not always encode the exact amount
+of epsilon privacy budget that was expended.
 The individual DP model used in Attribution (see {{ATTR-DP}}),
 allows a Client to expend less of its budget than this value
 for several reasons.
@@ -422,9 +422,9 @@ the amount of added noise
 and privacy parameters.
 
 The Attribution API differs from some other uses of DAP.
-which instead involve Clients adding noise to reports
+In those uses, Clients add noise to reports
 at the time they are generated.
-To maintain the usefulness of aggregates,
+To ensure the usefulness of aggregates,
 the amount of noise added by each Client is kept low.
 To maintain strong privacy,
 Clients partly rely on DAP mixing their contributions
@@ -452,7 +452,7 @@ the redundant addition of noise by Aggregators
 results in more noise when both Aggregators are honest.
 Even so,
 adding two amounts of noise
-often results in less overall noise
+can result in less overall noise
 than other approaches.
 
 
@@ -597,7 +597,7 @@ The Attribution API has its own understanding
 of how to encode the identity of the Collector.
 The value is a UTF-8-encoded string
 of the registrable domain
-from the intermediary site tuple (if there is an intermediary site)
+from the intermediary site {{SITE}} tuple (if there is an intermediary site)
 or the conversion site tuple (where there is no intermediary site).
 
 
@@ -658,7 +658,7 @@ The Attribution API has its own understanding
 of how to encode the identity of the budget source.
 The value is a UTF-8-encoded string
 of the registrable domain
-from the conversion site tuple.
+from the conversion site {{SITE}} tuple.
 
 
 # Security Considerations
@@ -722,6 +722,88 @@ in {{t-dap-collect-ext}}.
 
 
 --- back
+
+# Attribution API Usage
+
+The Attribution API {{API}} uses all of the extensions in this document.
+This section provides a brief overview of how the API uses DAP.
+
+The Attribution API is an API provided to websites by a browser.
+Impressions are recorded on multiple sites using a `saveImpression` call,
+though the identity of these sites has no relation to the use of DAP.
+DAP is only used by sites that request measurement using a `measureConversion` call.
+
+
+## Task Binding
+
+DAP tasks in the Attribution API are bound to the identity of the sites
+that request information.
+
+The top-level site (the one shown in a URL bar)
+is the primary source of privacy budget for these requests.
+The identity of this top-level site is carried
+in the `budget_source` task extension ({{budget-source}}).
+
+The top-level site can invoke `measureConversion`
+or it can be delegated to subresources on the webpage,
+such as content in iframes,
+The site that makes the request is the DAP Collector
+and is identified in the `collector_identity` task extension ({{collector-id}}).
+
+These two task extensions both use the same notion of site identity,
+which uses the web concept of registrable domain.
+
+
+## Privacy Budgeting
+
+{{api-usage}} outlines the use of privacy budgeting in the Attribution API.
+In that usage, a site invokes `measureConversion`
+and specifies how much privacy budget to expend.
+
+The browser always produces a DAP report
+in response to `measureConversion`.
+However, this report only includes non-zero values
+if it is able deduct from all relevant budgets.
+If privacy budgets are exhausted,
+the report will only contain zero values.
+
+{:aside}
+> Though the top-level site holds the primary privacy budget,
+> the browser manages multiple privacy budgets; see {{ATTR-DP}}.
+
+Aggregators are responsible for applying differential privacy noise,
+so they need to be aware of the amount of privacy budget
+that the site specified.
+Aggregators add noise to the values they return to the collector
+in a collection job.
+
+The `epsilon_privacy_budget` report extension ({{dp}}) always includes the requested value
+even though the amount of budget that the browser might consume could be less.
+The concrete amount of budget that was expended is necessarily kept secret
+for privacy reasons (see {{ATTR-DP}} for details).
+
+Privacy budget is bound to reports rather than the task
+to give sites greater flexibility.
+However, if a collector accidentally includes low-budget reports
+in a collection job
+this might cause the aggregators to add more noise than expected.
+The `min_epsilon_budget` collection job extension ({{min-dp}})
+ensures that reports with insufficient budget
+are discarded by aggregators.
+
+
+## Batch Mode Operation
+
+{{mode}} explains the operating mode
+used by the Attribution API in detail,
+including use of the `collector_selected` batch mode
+defined in {{batch-mode}}.
+
+Collectors can aggregate reports separately
+based on information known only to them.
+An important use of this is to allow collectors to selectively remove reports
+that they have identified as the result of spam or abuse.
+
 
 # Acknowledgments
 {:numbered="false"}
