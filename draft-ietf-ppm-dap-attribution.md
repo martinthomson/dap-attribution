@@ -250,20 +250,20 @@ at the time that each report is uploaded.
 
 Three other extensions are defined in this document.
 
-The minimum privacy budget collection job extension ({{min-dp}})
+The minimum epsilon privacy budget collection job extension ({{min-dp}})
 added to collection job initialization
 places guardrails around what reports can be included
 in a collection job.
-Reports that lack a privacy budget extension
+Reports that lack an epsilon privacy budget extension
 or those with a value below the indicated threshold
 must be rejected by Aggregators.
 
 For the Attribution API,
-setting a minimum privacy budget
+setting a minimum epsilon privacy budget
 is roughly equivalent to capping the noise
 that is added to an aggregate.
 Without this extension,
-noise could be determined from the privacy budget values
+noise could be determined from the epsilon privacy budget values
 bound to each report.
 Reports with lower than expected budget allocations,
 when included in aggregates,
@@ -317,11 +317,11 @@ though familiarity with these should not be necessary
 to understand how the extensions interact with DAP.
 
 
-# Differential Privacy Budget Report Extension {#dp}
+# Epsilon Privacy Budget Report Extension {#dp}
 
-The privacy budget report extension (see {{Section 4.4.3 of DAP}})
-codepoint 0xTBD,
-encodes the amount of privacy budget
+The epsilon privacy budget report extension (see {{Section 4.4.3 of DAP}})
+or `epsilon_privacy_budget` (codepoint 0xTBD),
+encodes the amount of epsilon privacy budget
 that might have been expended by a Client
 as a result of producing a report.
 
@@ -356,7 +356,7 @@ conversely, spending less budget means more noise.
 A budget might be specified in terms of a metric
 (like the epsilon parameter in (ε, δ)-differential privacy)
 that is expended with each information release.
-As noted, this extension uses the ε metric.
+This extension uses the epsilon (ε) metric.
 
 For example, for an overall budget of ε=10
 might be split four ways: (0.5, 1.5, 2, 6).
@@ -395,8 +395,8 @@ and the total number of tasks that each client might contribute to.
 ## Use in the Attribution API
 
 When used in the Attribution API {{ATTR}},
-the privacy budget report extension does not always encode the exact amount
-of privacy budget that was expended.
+the epsilon privacy budget report extension does not always encode the exact amount
+of epsilon privacy budget that was expended.
 The individual DP model used in Attribution (see {{ATTR-DP}}),
 allows a Client to expend less of its budget than this value
 for several reasons.
@@ -459,7 +459,7 @@ than other approaches.
 # Collector-Selected Batch Mode {#batch-mode}
 
 The collector-selected batch mode
-(codepoint 0xTBD)
+or `collector_selected` (codepoint 0xTBD)
 give the Collector control over which reports are included in collection job.
 
 In this batch mode
@@ -535,19 +535,19 @@ and the BatchSelector.config contains a batch ID
 that is assigned by the Leader.
 
 
-# Minimum Privacy Budget Collection Job Extension {#min-dp}
+# Minimum Epsilon Privacy Budget Collection Job Extension {#min-dp}
 
-The minimum privacy budget collection job extension (see {{Section 4.6.2 of DAP}}),
-codepoint 0xTBD,
+The minimum epsilon privacy budget collection job extension (see {{Section 4.6.2 of DAP}}),
+or `min_epsilon_budget` (codepoint 0xTBD),
 allows a Collector to inform Aggregators
-of a minimum value for the privacy budget report extension
+of a minimum value for the epsilon privacy budget report extension
 (see {{dp}})
 that it expects to be included in the collection job.
 
 The format of this extension
 is a 32-bit network-endian encoding of an integer
 in units of micro-epsilon.
-This is identical to the format of the privacy budget report extension ({{dp}}).
+This is identical to the format of the epsilon privacy budget report extension ({{dp}}).
 
 This extension is defined primarily as a safeguard.
 In the absence of this extension,
@@ -570,7 +570,7 @@ in one of two ways:
   to the aggregate.
 * As a safeguard alone.
   The value is only used to filter reports
-  and the minimum value of the privacy budget report extension
+  and the minimum value of the epsilon privacy budget report extension
   across all accepted reports determines the magnitude of added noise.
 
 Either approach maintains differential privacy guarantees.
@@ -584,7 +584,7 @@ that less noise was added than they might have planned.
 # Collector Identity Task Extension {#collector-id}
 
 The collector identity task extension (see {{Section 4.2.2 of DAP}}),
-codepoint 0xTBD,
+or `collector_identity` (codepoint 0xTBD),
 binds the task --
 and all reports submitted to that task --
 to a single Collector.
@@ -638,7 +638,7 @@ leaving this to implementations.
 # Budget Source Task Extension {#budget-source}
 
 The budget source task extension (see {{Section 4.2.2 of DAP}}),
-codepoint 0xTBD,
+or `budget_source` (codepoint 0xTBD),
 binds a task --
 and all reports submitted to that task --
 to a single source of privacy budget.
@@ -703,9 +703,9 @@ established in {{Section 9.2.3 of DAP}}.
 The new report extension registration is tabulated
 in {{t-dap-report-ext}}.
 
-| Value  | Name               | Reference     |
-|:-------|:-------------------|:--------------|
-| TBD    | privacy_budget     | {{dp}}        |
+| Value  | Name                   | Reference     |
+|:-------|:-----------------------|:--------------|
+| TBD    | epsilon_privacy_budget | {{dp}}        |
 {: #t-dap-report-ext title="DAP Extensions"}
 
 This document registers a collection job extension
@@ -717,7 +717,7 @@ in {{t-dap-collect-ext}}.
 
 | Value  | Name               | Reference          |
 |:-------|:-------------------|:-------------------|
-| TBD    | min_dp_budget      | {{min-dp}}         |
+| TBD    | min_epsilon_budget | {{min-dp}}         |
 {: #t-dap-collect-ext title="Collection Job Extensions"}
 
 
