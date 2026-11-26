@@ -220,17 +220,17 @@ A simple representation of the architecture used by the Attribution API
 is illustrated in {{f-arch-attr}}.
 
 ~~~ aasvg
-                                                            +--------+
-                                                            | Helper |
-                                                            +--------+
-                                                                ^
-+------------+                                                  ║ Validate &
-| +----------+-+    Reports                                     ║ Aggregate
-| | +----------+-+ ----------> +-----------+   Batched          v
-+-+ |  Clients   | ----------> | Collector |   Reports      +--------+
-  +-+ (Browsers) | ----------> | (Website) | =============> | Leader |
-    +------------+ ----------> +-----------+ <------------- +--------+
-                                               Result
+                                                     +--------+
+                                                     | Helper |
+                                                     +--------+
+                                                         ^
++------------+                                           ║ Validate &
+| +----------+-+   Reports                               ║ Aggregate
+| | +----------+-+ -------> +-----------+  Batched       v
++-+ |  Clients   | -------> | Collector |  Reports    +--------+
+  +-+ (Browsers) | -------> | (Website) | ==========> | Leader |
+    +------------+ -------> +-----------+ <---------- +--------+
+                                            Result
 ~~~
 {: #f-arch-attr title="Attribution API Architecture" artwork-svg-options="--spaces=2"}
 
@@ -597,7 +597,7 @@ The Attribution API has its own understanding
 of how to encode the identity of the Collector.
 The value is a UTF-8-encoded string
 of the registrable domain
-from the intermediary site tuple (if there is an intermediary site)
+from the intermediary site {{SITE}} tuple (if there is an intermediary site)
 or the conversion site tuple (where there is no intermediary site).
 
 
@@ -658,7 +658,7 @@ The Attribution API has its own understanding
 of how to encode the identity of the budget source.
 The value is a UTF-8-encoded string
 of the registrable domain
-from the conversion site tuple.
+from the conversion site {{SITE}} tuple.
 
 
 # Security Considerations
