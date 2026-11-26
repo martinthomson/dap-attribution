@@ -12,24 +12,24 @@ that support the Attribution API.
 These extensions provide support for differentially-private aggregation
 and the operating modes that the Attribution API depends on. 
     " name="description">
-<meta content="xml2rfc 3.34.0" name="generator">
+<meta content="xml2rfc 3.35.0" name="generator">
 <meta content="decibels" name="keyword">
 <meta content="replay" name="keyword">
 <meta content="draft-ietf-ppm-dap-attribution-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.34.0
-    Python 3.14.5
-    ConfigArgParse 1.7.5
+  xml2rfc 3.35.0
+    Python 3.14.10
+    ConfigArgParse 1.10.1
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.11.0
+    platformdirs 4.14.7
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.8.2
+    wcwidth 0.9.4
 -->
 <link href="draft-ietf-ppm-dap-attribution.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1030,7 +1030,7 @@ svg {
   & :is([stroke="white"], [stroke^="#fff"]) {
     stroke: var(--background-color);
   }
-  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+  & :is([fill="black"], [fill^="#000"], :not([fill], [fill] *)) {
     fill: var(--text-color);
   }
   & :is([fill="white"], [fill^="#fff"]) {
@@ -1045,11 +1045,11 @@ svg {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DAP Extensions for Attribution</td>
-<td class="right">August 2026</td>
+<td class="right">November 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Thomson</td>
-<td class="center">Expires 18 February 2027</td>
+<td class="center">Expires 30 May 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1062,12 @@ svg {
 <dd class="internet-draft">draft-ietf-ppm-dap-attribution-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-08-17" class="published">17 August 2026</time>
+<time datetime="2026-11-26" class="published">26 November 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-02-18">18 February 2027</time></dd>
+<dd class="expires"><time datetime="2027-05-30">30 May 2027</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1120,7 +1120,7 @@ and the operating modes that the Attribution API depends on.<a href="#section-ab
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 30 May 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1400,61 +1400,61 @@ is illustrated in <a href="#f-arch-attr" class="auto internal xref">Figure 2</a>
 <figure id="figure-2">
           <div id="section-1.2-9.1">
             <div class="alignLeft art-svg artwork" id="section-1.2-9.1.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="208" width="616" viewBox="0 0 616 208" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="208" width="560" viewBox="0 0 560 208" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
                 <path d="M 8,96 L 8,144" fill="none" stroke="black"></path>
                 <path d="M 24,112 L 24,160" fill="none" stroke="black"></path>
                 <path d="M 40,128 L 40,176" fill="none" stroke="black"></path>
                 <path d="M 112,96 L 112,112" fill="none" stroke="black"></path>
                 <path d="M 128,112 L 128,128" fill="none" stroke="black"></path>
                 <path d="M 144,128 L 144,176" fill="none" stroke="black"></path>
-                <path d="M 256,128 L 256,176" fill="none" stroke="black"></path>
-                <path d="M 352,128 L 352,176" fill="none" stroke="black"></path>
-                <path d="M 488,32 L 488,64" fill="none" stroke="black"></path>
-                <path d="M 488,144 L 488,176" fill="none" stroke="black"></path>
-                <path d="M 522,72 L 522,136" fill="none" stroke="black"></path>
-                <path d="M 518,72 L 518,136" fill="none" stroke="black"></path>
-                <path d="M 560,32 L 560,64" fill="none" stroke="black"></path>
-                <path d="M 560,144 L 560,176" fill="none" stroke="black"></path>
-                <path d="M 488,32 L 560,32" fill="none" stroke="black"></path>
-                <path d="M 488,64 L 560,64" fill="none" stroke="black"></path>
+                <path d="M 232,128 L 232,176" fill="none" stroke="black"></path>
+                <path d="M 328,128 L 328,176" fill="none" stroke="black"></path>
+                <path d="M 432,32 L 432,64" fill="none" stroke="black"></path>
+                <path d="M 440,144 L 440,176" fill="none" stroke="black"></path>
+                <path d="M 466,72 L 466,136" fill="none" stroke="black"></path>
+                <path d="M 462,72 L 462,136" fill="none" stroke="black"></path>
+                <path d="M 504,32 L 504,64" fill="none" stroke="black"></path>
+                <path d="M 512,144 L 512,176" fill="none" stroke="black"></path>
+                <path d="M 432,32 L 504,32" fill="none" stroke="black"></path>
+                <path d="M 432,64 L 504,64" fill="none" stroke="black"></path>
                 <path d="M 8,96 L 112,96" fill="none" stroke="black"></path>
                 <path d="M 24,112 L 128,112" fill="none" stroke="black"></path>
                 <path d="M 40,128 L 144,128" fill="none" stroke="black"></path>
-                <path d="M 160,128 L 240,128" fill="none" stroke="black"></path>
-                <path d="M 256,128 L 352,128" fill="none" stroke="black"></path>
+                <path d="M 160,128 L 216,128" fill="none" stroke="black"></path>
+                <path d="M 232,128 L 328,128" fill="none" stroke="black"></path>
                 <path d="M 8,144 L 24,144" fill="none" stroke="black"></path>
-                <path d="M 160,144 L 240,144" fill="none" stroke="black"></path>
-                <path d="M 488,144 L 560,144" fill="none" stroke="black"></path>
+                <path d="M 160,144 L 216,144" fill="none" stroke="black"></path>
+                <path d="M 440,144 L 512,144" fill="none" stroke="black"></path>
                 <path d="M 24,160 L 40,160" fill="none" stroke="black"></path>
-                <path d="M 160,160 L 240,160" fill="none" stroke="black"></path>
-                <path d="M 368,158 L 472,158" fill="none" stroke="black"></path>
-                <path d="M 368,162 L 472,162" fill="none" stroke="black"></path>
+                <path d="M 160,160 L 216,160" fill="none" stroke="black"></path>
+                <path d="M 344,158 L 424,158" fill="none" stroke="black"></path>
+                <path d="M 344,162 L 424,162" fill="none" stroke="black"></path>
                 <path d="M 40,176 L 144,176" fill="none" stroke="black"></path>
-                <path d="M 160,176 L 240,176" fill="none" stroke="black"></path>
-                <path d="M 256,176 L 352,176" fill="none" stroke="black"></path>
-                <path d="M 368,176 L 472,176" fill="none" stroke="black"></path>
-                <path d="M 488,176 L 560,176" fill="none" stroke="black"></path>
-                <polygon class="arrowhead" points="528,136 516,130.4 516,141.6" fill="black" transform="rotate(90,520,136)"></polygon>
-                <polygon class="arrowhead" points="528,72 516,66.4 516,77.6" fill="black" transform="rotate(270,520,72)"></polygon>
-                <polygon class="arrowhead" points="480,160 468,154.4 468,165.6" fill="black" transform="rotate(0,472,160)"></polygon>
-                <polygon class="arrowhead" points="376,176 364,170.4 364,181.6" fill="black" transform="rotate(180,368,176)"></polygon>
-                <polygon class="arrowhead" points="248,176 236,170.4 236,181.6" fill="black" transform="rotate(0,240,176)"></polygon>
-                <polygon class="arrowhead" points="248,160 236,154.4 236,165.6" fill="black" transform="rotate(0,240,160)"></polygon>
-                <polygon class="arrowhead" points="248,144 236,138.4 236,149.6" fill="black" transform="rotate(0,240,144)"></polygon>
-                <polygon class="arrowhead" points="248,128 236,122.4 236,133.6" fill="black" transform="rotate(0,240,128)"></polygon>
+                <path d="M 160,176 L 216,176" fill="none" stroke="black"></path>
+                <path d="M 232,176 L 328,176" fill="none" stroke="black"></path>
+                <path d="M 344,176 L 424,176" fill="none" stroke="black"></path>
+                <path d="M 440,176 L 512,176" fill="none" stroke="black"></path>
+                <polygon class="arrowhead" points="472,136 460,130.4 460,141.6" fill="black" transform="rotate(90,464,136)"></polygon>
+                <polygon class="arrowhead" points="472,72 460,66.4 460,77.6" fill="black" transform="rotate(270,464,72)"></polygon>
+                <polygon class="arrowhead" points="432,160 420,154.4 420,165.6" fill="black" transform="rotate(0,424,160)"></polygon>
+                <polygon class="arrowhead" points="352,176 340,170.4 340,181.6" fill="black" transform="rotate(180,344,176)"></polygon>
+                <polygon class="arrowhead" points="224,176 212,170.4 212,181.6" fill="black" transform="rotate(0,216,176)"></polygon>
+                <polygon class="arrowhead" points="224,160 212,154.4 212,165.6" fill="black" transform="rotate(0,216,160)"></polygon>
+                <polygon class="arrowhead" points="224,144 212,138.4 212,149.6" fill="black" transform="rotate(0,216,144)"></polygon>
+                <polygon class="arrowhead" points="224,128 212,122.4 212,133.6" fill="black" transform="rotate(0,216,128)"></polygon>
                 <g class="text">
-                  <text x="524" y="52">Helper</text>
-                  <text x="572" y="100">Validate &amp;</text>
-                  <text x="192" y="116">Reports</text>
-                  <text x="568" y="116">Aggregate</text>
-                  <text x="408" y="132">Batched</text>
+                  <text x="468" y="52">Helper</text>
+                  <text x="516" y="100">Validate &amp;</text>
+                  <text x="184" y="116">Reports</text>
+                  <text x="512" y="116">Aggregate</text>
+                  <text x="376" y="132">Batched</text>
                   <text x="88" y="148">Clients</text>
-                  <text x="304" y="148">Collector</text>
-                  <text x="408" y="148">Reports</text>
+                  <text x="280" y="148">Collector</text>
+                  <text x="376" y="148">Reports</text>
                   <text x="92" y="164">(Browsers)</text>
-                  <text x="304" y="164">(Website)</text>
-                  <text x="524" y="164">Leader</text>
-                  <text x="404" y="196">Result</text>
+                  <text x="280" y="164">(Website)</text>
+                  <text x="476" y="164">Leader</text>
+                  <text x="380" y="196">Result</text>
                 </g>
               </svg><a href="#section-1.2-9.1.1" class="pilcrow">¶</a>
 </div>
@@ -1554,7 +1554,7 @@ to understand how the extensions interact with DAP.<a href="#section-2-2" class=
       <h2 id="name-differential-privacy-budget">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-differential-privacy-budget" class="section-name selfRef">Differential Privacy Budget Report Extension</a>
       </h2>
-<p id="section-3-1">The privacy budget report extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-4.4.3" class="relref">Section 4.4.3</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
+<p id="section-3-1">The privacy budget report extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-4.4.3" class="relref">Section 4.4.3</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
 codepoint 0xTBD,
 encodes the amount of privacy budget
 that might have been expended by a Client
@@ -1670,7 +1670,7 @@ parameter in task configuration.
 However, it adds to the work
 that Clients need to trust Aggregators to perform.<a href="#section-3.3-6" class="pilcrow">¶</a></p>
 <p id="section-3.3-7">To maintain consistency with the DAP threat model for privacy
-(see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-8" class="relref">Section 8</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
+(see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-8" class="relref">Section 8</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
 this can mean either performing noise addition in an MPC protocol
 or having Aggregators each independently apply the requisite amount of noise.<a href="#section-3.3-7" class="pilcrow">¶</a></p>
 <p id="section-3.3-8">A number of MPC protocols for adding noise exist,
@@ -1698,8 +1698,8 @@ give the Collector control over which reports are included in collection job.<a 
 <p id="section-4-2">In this batch mode
 the Leader is not able to determine the associated batch for a report
 based on the contents of each report alone.
-This differs from the existing leader-selected (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-5.2" class="relref">Section 5.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
-or time interval (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-5.1" class="relref">Section 5.1</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>) batch modes.<a href="#section-4-2" class="pilcrow">¶</a></p>
+This differs from the existing leader-selected (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-5.2" class="relref">Section 5.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
+or time interval (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-5.1" class="relref">Section 5.1</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>) batch modes.<a href="#section-4-2" class="pilcrow">¶</a></p>
 <p id="section-4-3">To that end,
 uploads of reports use a different URL template
 from the usual location for report uploads;
@@ -1733,7 +1733,7 @@ or the collection job ID is more easily guessed.<a href="#section-4-7.1" class="
 </aside>
 <p id="section-4-8">A Leader <span class="bcp14">MUST</span> reject attempts
 to upload reports to the regular report upload resource
-(as defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-4.5.2" class="relref">Section 4.5.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
+(as defined in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-4.5.2" class="relref">Section 4.5.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
 when the collector-selected batch mode is configured for a task.<a href="#section-4-8" class="pilcrow">¶</a></p>
 <div id="upload">
 <section id="section-4.1">
@@ -1748,7 +1748,7 @@ to a URL that follows the template:<a href="#section-4.1-1" class="pilcrow">¶</
 </pre><a href="#section-4.1-2" class="pilcrow">¶</a>
 </div>
 <p id="section-4.1-3">The inclusion of the collection job ID
-(see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-4.7" class="relref">Section 4.7</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
+(see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-4.7" class="relref">Section 4.7</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
 differs from other batch modes
 where the Collector does not need to provide
 any additional information to a Leader.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
@@ -1760,7 +1760,7 @@ any additional information to a Leader.<a href="#section-4.1-3" class="pilcrow">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-batch-mode-parameters" class="section-name selfRef">Batch Mode Parameters</a>
         </h3>
 <p id="section-4.2-1">This batch mode uses the same parameters
-as the leader-selected batch mode (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-5.2" class="relref">Section 5.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>).
+as the leader-selected batch mode (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-5.2" class="relref">Section 5.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>).
 That is, the payload Query.config is empty.
 Both the PartialBatchSelector.config
 and the BatchSelector.config contains a batch ID
@@ -1774,7 +1774,7 @@ that is assigned by the Leader.<a href="#section-4.2-1" class="pilcrow">¶</a></
       <h2 id="name-minimum-privacy-budget-coll">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-minimum-privacy-budget-coll" class="section-name selfRef">Minimum Privacy Budget Collection Job Extension</a>
       </h2>
-<p id="section-5-1">The minimum privacy budget collection job extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-4.6.2" class="relref">Section 4.6.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
+<p id="section-5-1">The minimum privacy budget collection job extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-4.6.2" class="relref">Section 4.6.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
 codepoint 0xTBD,
 allows a Collector to inform Aggregators
 of a minimum value for the privacy budget report extension
@@ -1823,7 +1823,7 @@ that less noise was added than they might have planned.<a href="#section-5-7" cl
       <h2 id="name-collector-identity-task-ext">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-collector-identity-task-ext" class="section-name selfRef">Collector Identity Task Extension</a>
       </h2>
-<p id="section-6-1">The collector identity task extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-4.2.2" class="relref">Section 4.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
+<p id="section-6-1">The collector identity task extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-4.2.2" class="relref">Section 4.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
 codepoint 0xTBD,
 binds the task --
 and all reports submitted to that task --
@@ -1835,7 +1835,7 @@ that best suits the needs of the application.<a href="#section-6-2" class="pilcr
 of how to encode the identity of the Collector.
 The value is a UTF-8-encoded string
 of the registrable domain
-from the intermediary site tuple (if there is an intermediary site)
+from the intermediary site <span>[<a href="#SITE" class="cite xref">SITE</a>]</span> tuple (if there is an intermediary site)
 or the conversion site tuple (where there is no intermediary site).<a href="#section-6-3" class="pilcrow">¶</a></p>
 <div id="collector-identity-and-hpke-configuration">
 <section id="section-6.1">
@@ -1855,7 +1855,7 @@ but rather an affirmation that the public key
 is approved by the identified entity.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <p id="section-6.1-3">One option for Collector identification is to use a URL,
 following the pattern used for the Leader and Helper;
-see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-4.2" class="relref">Section 4.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.
+see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-4.2" class="relref">Section 4.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.
 If the URL uses an authenticated protocol,
 such as HTTP with the "https" scheme <span>[<a href="#RFC9110" class="cite xref">RFC9110</a>]</span>,
 retrieving an HPKE configuration from that URL
@@ -1877,7 +1877,7 @@ leaving this to implementations.<a href="#section-6.1-5" class="pilcrow">¶</a><
       <h2 id="name-budget-source-task-extensio">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-budget-source-task-extensio" class="section-name selfRef">Budget Source Task Extension</a>
       </h2>
-<p id="section-7-1">The budget source task extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-4.2.2" class="relref">Section 4.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
+<p id="section-7-1">The budget source task extension (see <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-4.2.2" class="relref">Section 4.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>),
 codepoint 0xTBD,
 binds a task --
 and all reports submitted to that task --
@@ -1895,7 +1895,7 @@ that best suits the needs of the differentially private usage.<a href="#section-
 of how to encode the identity of the budget source.
 The value is a UTF-8-encoded string
 of the registrable domain
-from the conversion site tuple.<a href="#section-7-4" class="pilcrow">¶</a></p>
+from the conversion site <span>[<a href="#SITE" class="cite xref">SITE</a>]</span> tuple.<a href="#section-7-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -1906,7 +1906,7 @@ from the conversion site tuple.<a href="#section-7-4" class="pilcrow">¶</a></p>
 <p id="section-8-1">Security factors specific to each extension
 are covered in the respective sections.<a href="#section-8-1" class="pilcrow">¶</a></p>
 <p id="section-8-2">Use of DAP is subject to the security considerations
-of DAP (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-8" class="relref">Section 8</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
+of DAP (<span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-8" class="relref">Section 8</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>)
 and the VDAF that is in use (<span><a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-vdaf-22#section-9" class="relref">Section 9</a> of [<a href="#VDAF" class="cite xref">VDAF</a>]</span>.<a href="#section-8-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1917,7 +1917,7 @@ and the VDAF that is in use (<span><a href="https://datatracker.ietf.org/doc/htm
       </h2>
 <p id="section-9-1">This document registers a new batch mode
 in the "DAP Batch Mode Identifiers" registry
-established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-9.2.1" class="relref">Section 9.2.1</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-1" class="pilcrow">¶</a></p>
+established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-9.2.1" class="relref">Section 9.2.1</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-1" class="pilcrow">¶</a></p>
 <span id="name-dap-match-mode"></span><div id="t-dap-bm">
 <table class="center" id="table-1">
         <caption>
@@ -1944,7 +1944,7 @@ established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-p
 </div>
 <p id="section-9-3">This document registers task extensions
 in the "DAP Task Extension Identifiers" registry
-established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-9.2.2" class="relref">Section 9.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-3" class="pilcrow">¶</a></p>
+established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-9.2.2" class="relref">Section 9.2.2</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-3" class="pilcrow">¶</a></p>
 <p id="section-9-4">New task extensions are tabulated
 in <a href="#t-dap-task-ext" class="auto internal xref">Table 2</a>.<a href="#section-9-4" class="pilcrow">¶</a></p>
 <span id="name-task-configuration-extensio"></span><div id="t-dap-task-ext">
@@ -1980,7 +1980,7 @@ in <a href="#t-dap-task-ext" class="auto internal xref">Table 2</a>.<a href="#se
 </div>
 <p id="section-9-6">This document registers a DAP report extension
 in the "DAP Report Extension Identifiers" registry
-established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-9.2.3" class="relref">Section 9.2.3</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-6" class="pilcrow">¶</a></p>
+established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-9.2.3" class="relref">Section 9.2.3</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-6" class="pilcrow">¶</a></p>
 <p id="section-9-7">The new report extension registration is tabulated
 in <a href="#t-dap-report-ext" class="auto internal xref">Table 3</a>.<a href="#section-9-7" class="pilcrow">¶</a></p>
 <span id="name-dap-extensions"></span><div id="t-dap-report-ext">
@@ -2009,7 +2009,7 @@ in <a href="#t-dap-report-ext" class="auto internal xref">Table 3</a>.<a href="#
 </div>
 <p id="section-9-9">This document registers a collection job extension
 in the "DAP Collection Job Extension Identifiers" registry
-established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19#section-9.2.4" class="relref">Section 9.2.4</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-9" class="pilcrow">¶</a></p>
+established in <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20#section-9.2.4" class="relref">Section 9.2.4</a> of [<a href="#DAP" class="cite xref">DAP</a>]</span>.<a href="#section-9-9" class="pilcrow">¶</a></p>
 <p id="section-9-10">The new collection job extension is tabulated
 in <a href="#t-dap-collect-ext" class="auto internal xref">Table 4</a>.<a href="#section-9-10" class="pilcrow">¶</a></p>
 <span id="name-collection-job-extensions"></span><div id="t-dap-collect-ext">
@@ -2051,7 +2051,7 @@ in <a href="#t-dap-collect-ext" class="auto internal xref">Table 4</a>.<a href="
 <dl class="references">
 <dt id="DAP">[DAP]</dt>
         <dd>
-<span class="refAuthor">Geoghegan, T.</span>, <span class="refAuthor">Patton, C.</span>, <span class="refAuthor">Pitman, B.</span>, <span class="refAuthor">Rescorla, E.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Distributed Aggregation Protocol for Privacy Preserving Measurement"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-ppm-dap-19</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19">https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-19</a>&gt;</span>. </dd>
+<span class="refAuthor">Geoghegan, T.</span>, <span class="refAuthor">Patton, C.</span>, <span class="refAuthor">Pitman, B.</span>, <span class="refAuthor">Rescorla, E.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Distributed Aggregation Protocol for Privacy Preserving Measurement"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-ppm-dap-20</span>, <time datetime="2026-10-20" class="refDate">20 October 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20">https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-20</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>

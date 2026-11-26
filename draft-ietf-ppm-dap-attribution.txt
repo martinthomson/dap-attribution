@@ -4,8 +4,8 @@
 
 Privacy Preserving Measurement                                M. Thomson
 Internet-Draft                                                   Mozilla
-Intended status: Standards Track                          17 August 2026
-Expires: 18 February 2027
+Intended status: Standards Track                        26 November 2026
+Expires: 30 May 2027
 
 
  Distributed Aggregation Protocol (DAP) Extensions for the Attribution
@@ -52,7 +52,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 February 2027.
+   This Internet-Draft will expire on 30 May 2027.
 
 Copyright Notice
 
@@ -192,19 +192,19 @@ Table of Contents
    A simple representation of the architecture used by the Attribution
    API is illustrated in Figure 2.
 
-                                                            +--------+
-                                                            | Helper |
-                                                            +--------+
-                                                                ^
-+------------+                                                  ║ Validate &
-| +----------+-+    Reports                                     ║ Aggregate
-| | +----------+-+ ----------> +-----------+   Batched          v
-+-+ |  Clients   | ----------> | Collector |   Reports      +--------+
-  +-+ (Browsers) | ----------> | (Website) | =============> | Leader |
-    +------------+ ----------> +-----------+ <------------- +--------+
+                                                        +--------+
+                                                        | Helper |
+                                                        +--------+
+                                                            ^
+   +------------+                                           ║ Validate &
+   | +----------+-+   Reports                               ║ Aggregate
+   | | +----------+-+ -------> +-----------+  Batched       v
+   +-+ |  Clients   | -------> | Collector |  Reports    +--------+
+     +-+ (Browsers) | -------> | (Website) | ==========> | Leader |
+       +------------+ -------> +-----------+ <---------- +--------+
                                                Result
 
-                Figure 2: Attribution API Architecture
+                   Figure 2: Attribution API Architecture
 
    To support this mode of operation, a new batch mode for DAP is
    defined called "collector-selected"; see Section 4.  For other batch
@@ -491,9 +491,9 @@ Table of Contents
 
    The Attribution API has its own understanding of how to encode the
    identity of the Collector.  The value is a UTF-8-encoded string of
-   the registrable domain from the intermediary site tuple (if there is
-   an intermediary site) or the conversion site tuple (where there is no
-   intermediary site).
+   the registrable domain from the intermediary site [SITE] tuple (if
+   there is an intermediary site) or the conversion site tuple (where
+   there is no intermediary site).
 
 6.1.  Collector Identity and HPKE Configuration
 
@@ -541,7 +541,7 @@ Table of Contents
 
    The Attribution API has its own understanding of how to encode the
    identity of the budget source.  The value is a UTF-8-encoded string
-   of the registrable domain from the conversion site tuple.
+   of the registrable domain from the conversion site [SITE] tuple.
 
 8.  Security Considerations
 
@@ -615,9 +615,9 @@ Table of Contents
    [DAP]      Geoghegan, T., Patton, C., Pitman, B., Rescorla, E., and
               C. A. Wood, "Distributed Aggregation Protocol for Privacy
               Preserving Measurement", Work in Progress, Internet-Draft,
-              draft-ietf-ppm-dap-19, 6 July 2026,
+              draft-ietf-ppm-dap-20, 20 October 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-ppm-dap-
-              19>.
+              20>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
